@@ -1,6 +1,7 @@
 'use server'
 
 import { prisma } from "@/lib/prisma"
+import { revalidatePath } from "next/cache"
 
 
 export default async function createJobs(data:FormData) {
@@ -19,4 +20,6 @@ export default async function createJobs(data:FormData) {
             type
         }
     })
+
+    revalidatePath('/')
 }
