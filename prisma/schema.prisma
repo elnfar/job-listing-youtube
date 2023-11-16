@@ -17,6 +17,7 @@ model JobListing {
   location         String
   salary           String
   type             String
+  description      String    @default("Default description")
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
   expiresAt        DateTime?
