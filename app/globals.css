@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  /* :root {
+  :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -33,9 +33,9 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
-  } */
+  }
 
-  /* .bg-gray-200 {
+  .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -63,35 +63,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-  } */
-
-  :root {
-    /* New color scheme */
-    --background: 0 0% 100%; /* White background */
-    --foreground: 240 100% 15%; /* Dark blue foreground */
-
-    --card: 150 50% 70%; /* Minty green cards */
-    --card-foreground: 240 100% 15%;
-
-    --popover: 150 50% 70%;
-    --popover-foreground: 240 100% 15%;
-
-    --primary: 240 100% 15%; /* Dark blue buttons */
-    --primary-foreground: 0 0% 100%;
-
-    /* Other color variables */
-    /* Adjust other colors as needed */
-  }
-
-  /* Specific styles for bg-gray-200 class */
-  .bg-gray-200 {
-    --background: 0 0% 100%; /* White background */
-    --foreground: 240 100% 15%; /* Dark blue foreground */
-
-    --card: 150 50% 70%; /* Minty green cards */
-    --card-foreground: 240 100% 15%;
-
-    /* Other color variables for this class */
   }
 }
 
