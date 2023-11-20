@@ -1,12 +1,15 @@
 import type { NextAuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
+//import { PrismaAdapter } from "@next-auth/Prisma-adapter";
+import { PrismaClient } from "@prisma/client";
+
 
 export const options: NextAuthOptions = {
     providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+        GithubProvider({
+            clientId: process.env.GITHUB_ID as string,
+            clientSecret: process.env.GITHUB_SECRET as string,
         }),
         CredentialsProvider({
             name: "Credentials",
@@ -33,9 +36,6 @@ export const options: NextAuthOptions = {
             }
         })
     ],
-    callbacks: {
-
-    }
 };
 
 export default options;
