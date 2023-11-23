@@ -5,6 +5,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaClient } from "@prisma/client";
 
 
+const prisma = new PrismaClient();
+
 export const options: NextAuthOptions = {
     providers: [
         GithubProvider({
@@ -14,10 +16,10 @@ export const options: NextAuthOptions = {
         CredentialsProvider({
             name: "Credentials",
             credentials: {
-                username: {
-                    label: "Username:",
+                useremail: {
+                    label: "Useremail:",
                     type: "text",
-                    placeholder: "your-username"
+                    placeholder: "your-email"
                 },
                 password: {
                     label: "Password:",
@@ -26,10 +28,14 @@ export const options: NextAuthOptions = {
                 }
             },
             async authorize(credentials) {
-                // Retrieve user data to verify with credentials
-                const user = { id: "", name: "", password: "nextauth"}
 
-                if (credentials?.username === user.name && credentials?.password === user.password) {
+                const user = await prisma.user.findUnique({
+                    where: {
+                        email: credentials?.useremail
+                    }
+                })
+
+                if (credentials?.useremail === user?.email && credentials?.password === user?.password) {
                     return user
                 }
                 return null
